@@ -47,6 +47,7 @@ function colorearTabla() {
 
 function manejadorEventos() {
 
+    //Seguir aquí
 
     for (let i = 0; i < 5 * 5; i++) { //para cada celda
         const celda = document.getElementById('celda'+i);
