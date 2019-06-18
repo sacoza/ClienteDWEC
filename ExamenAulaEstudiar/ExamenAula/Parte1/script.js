@@ -50,28 +50,27 @@ function manejadorEventos() {
     //Seguir aquí
 
     for (let i = 0; i < 5 * 5; i++) { //para cada celda
-        const celda = document.getElementById('celda'+i);
-        celda.addEventListener('click', function() {
-            console.log(celda);
-
-        const element = document.getElementById('celda'+i);
-        const color = element.style.background
-        const id = element.getAttribute('id');
-        console.log(color); // 2em
-        console.log(id); // 2em
-
-
-    //Este segundo click no lo pilla porque no sale del anterior
-        const celda2 = document.getElementById('celda24'); //'celda'+i
-        //celda2.addEventListener("click",function() { 
-            celda2.style.background = color;
-            console.log(celda2);
-        //});
-
-            
-});
-    }
+        const celda = document.getElementById('celda' + i);
+        celda.addEventListener('click', firstClick);
+        function firstClick() {
+            const element = document.getElementById('celda' + i);
+            const color = element.style.background
+            const id = element.getAttribute('id');
+            console.log(color); // 2em
+            console.log(id); // 2em
+            for (let i = 0; i < 5 * 5; i++) { //para cada celda
+            //Este segundo click no lo pilla porque no sale del anterior
+            const celda2 = document.getElementById('celda' + i);
+            celda2.addEventListener('click', secondClick);
+            function secondClick() {
+                    const element2 = document.getElementById('celda' + i);
+                    element2.style.background = color;
+                }
+            }
+        }
+    };
 }
+
 //Funcion logica del programa
 function logicaPrograma() {
     crearTabla(5, 5);
