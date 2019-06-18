@@ -51,8 +51,7 @@ function manejadorEventos() {
 
     for (let i = 0; i < 5 * 5; i++) { //para cada celda
         const celda = document.getElementById('celda'+i);
-        celda.addEventListener('click', function(event) {
-            let le = parseInt(event.target.background);
+        celda.addEventListener('click', function() {
             console.log(celda);
 
         const element = document.getElementById('celda'+i);
@@ -60,7 +59,16 @@ function manejadorEventos() {
         const id = element.getAttribute('id');
         console.log(color); // 2em
         console.log(id); // 2em
-    
+
+
+    //Este segundo click no lo pilla porque no sale del anterior
+        const celda2 = document.getElementById('celda24'); //'celda'+i
+        //celda2.addEventListener("click",function() { 
+            celda2.style.background = color;
+            console.log(celda2);
+        //});
+
+            
 });
     }
 }
