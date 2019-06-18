@@ -68,7 +68,7 @@ function manejadorEventos() {
                 }
             }
         }
-    };
+    }
 }
 
 //Funcion logica del programa
