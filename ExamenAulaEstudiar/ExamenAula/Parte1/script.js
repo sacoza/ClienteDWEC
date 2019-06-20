@@ -41,14 +41,15 @@ function colorearCasilla(id_celda) {
 function colorearTabla() {
     for (let i = 0; i < 5 * 5; i++) { //para cada celda
         colorearCasilla(i);
-
     }
 }
-
+//Funcionalidad de intercambiar casillas
 function manejadorEventos() {
-
-    //Seguir aquí
-
+    var body = document.body;
+    var h3 = document.createElement("h3");
+    h3.innerHTML = "You have:";
+    h3.style = "float:left; margin-top:10px; margin-left: 6px";
+    body.appendChild(h3);
     for (let i = 0; i < 5 * 5; i++) { //para cada celda
         const celda = document.getElementById('celda' + i);
         celda.addEventListener('click', firstClick);
@@ -58,13 +59,19 @@ function manejadorEventos() {
             const id = element.getAttribute('id');
             console.log(color); // 2em
             console.log(id); // 2em
+            var body = document.body;
+
+            var h5 = document.createElement("h5");
+            h5.innerHTML = color;
+            h5.style = "float:left; margin-top:16px; margin-left: 6px;";
+            body.appendChild(h5);
             for (let i = 0; i < 5 * 5; i++) { //para cada celda
-            //Este segundo click no lo pilla porque no sale del anterior
             const celda2 = document.getElementById('celda' + i);
             celda2.addEventListener('click', secondClick);
             function secondClick() {
                     const element2 = document.getElementById('celda' + i);
                     element2.style.background = color;
+                    console.log(element2+"aaa");
                 }
             }
         }
