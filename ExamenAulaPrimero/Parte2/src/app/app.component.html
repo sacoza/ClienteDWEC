@@ -1,0 +1,24 @@
+    
+<!--The content below is only a placeholder and can be replaced.-->
+<header>
+    <h1>Selecciona tu Pokémon inicial!</h1>
+  </header>
+  <section>
+    <!--Aquí muestra en tarjetas a los distintos pokemons -->
+    <div class="card" *ngFor="let x of pokedex; let i=index">
+      <div class="card-body">
+          <h3 [innerText]="x.id + ' ' + x.ename"></h3>
+          <img [src]="x.url"  (click)="seleccionado(x.url)">
+          <div class="inline-block-elem">
+              <h3>Types:</h3>
+              <ul>
+                  <li *ngFor="let j of x.type" [innerText]="j"></li>
+              </ul>
+          </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <h2>Has escogido a:</h2> 
+    <img [src]="select">
+  </footer>
